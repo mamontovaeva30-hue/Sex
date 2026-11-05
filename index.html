@@ -1,0 +1,586 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0a0e">
+    <meta name="description" content="CONDEMNED — интерактивная история.">
+    <title>CONDEMNED | Private Network</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- ЭКРАН ЗАГРУЗКИ -->
+        <div id="loading-screen" class="loading-screen">
+            <div class="loading-logo">C</div>
+            <div class="loading-title">CONDEMNED</div>
+            <div class="loading-subtitle">PRIVATE NETWORK</div>
+            <div class="loading-line">
+                <span></span>
+            </div>
+            <p>ИНИЦИАЛИЗАЦИЯ СИСТЕМЫ...</p>
+        </div>
+
+        <!-- ОСНОВНОЕ ПРИЛОЖЕНИЕ -->
+        <div id="main-app" class="main-app hidden">
+
+            <!-- ВЕРХНЯЯ ПАНЕЛЬ -->
+            <header class="topbar">
+                <div class="brand">
+                    <div class="brand-mark">C</div>
+                    <div class="brand-info">
+                        <div class="brand-name">CONDEMNED</div>
+                        <div class="brand-caption">PRIVATE CORPORATE NETWORK</div>
+                    </div>
+                </div>
+
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    <span>СИСТЕМА АКТИВНА</span>
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="top-icon" id="notification-button"
+                            aria-label="Уведомления" title="Уведомления">
+                        ♢
+                        <span id="notification-count" class="notification-count hidden">0</span>
+                    </button>
+
+                    <button class="top-icon" id="settings-button"
+                            aria-label="Настройки" title="Настройки">
+                        ⚙
+                    </button>
+                </div>
+            </header>
+
+            <!-- ОСНОВНАЯ СЕТКА -->
+            <div class="layout">
+
+                <!-- БОКОВОЕ МЕНЮ -->
+                <aside class="sidebar">
+                    <div class="profile-card">
+                        <div class="profile-avatar">ДЧ</div>
+                        <div class="profile-details">
+                            <div class="profile-name">Доминика Чернова</div>
+                            <div class="profile-role">EXECUTIVE DIRECTOR</div>
+                        </div>
+                        <span class="profile-status"></span>
+                    </div>
+
+                    <div class="sidebar-label">ГЛАВНОЕ</div>
+
+                    <nav class="navigation">
+                        <button class="nav-item active" data-page="story">
+                            <span class="nav-icon">▣</span>
+                            <span>История</span>
+                            <span class="nav-arrow">›</span>
+                        </button>
+
+                        <button class="nav-item" data-page="calendar">
+                            <span class="nav-icon">▦</span>
+                            <span>Календарь</span>
+                        </button>
+
+                        <button class="nav-item" data-page="tasks">
+                            <span class="nav-icon">◇</span>
+                            <span>Задания</span>
+                            <span id="task-count" class="nav-count">0</span>
+                        </button>
+
+                        <button class="nav-item" data-page="messages">
+                            <span class="nav-icon">▤</span>
+                            <span>Переписки</span>
+                            <span id="message-count" class="nav-count hidden">0</span>
+                        </button>
+                    </nav>
+
+                    <div class="sidebar-label">АРХИВ</div>
+
+                    <nav class="navigation">
+                        <button class="nav-item" data-page="dossiers">
+                            <span class="nav-icon">▧</span>
+                            <span>Досье</span>
+                        </button>
+
+                        <button class="nav-item" data-page="cases">
+                            <span class="nav-icon">⌕</span>
+                            <span>Дела</span>
+                        </button>
+
+                        <button class="nav-item" data-page="companies">
+                            <span class="nav-icon">▥</span>
+                            <span>Компании</span>
+                        </button>
+
+                        <button class="nav-item" data-page="archive">
+                            <span class="nav-icon">▤</span>
+                            <span>Архив документов</span>
+                        </button>
+                    </nav>
+
+                    <div class="sidebar-bottom">
+                        <div class="sidebar-divider"></div>
+                        <div class="save-status">
+                            <span class="save-dot"></span>
+                            <span id="save-status">Прогресс сохранён</span>
+                        </div>
+                        <div class="version-label">BUILD 01.10 / STORY MODE</div>
+                    </div>
+                </aside>
+
+                <!-- ЦЕНТРАЛЬНАЯ ЧАСТЬ -->
+                <main class="content">
+
+                    <!-- СТРАНИЦА ИСТОРИИ -->
+                    <section id="page-story" class="page active">
+
+                        <div class="page-heading">
+                            <div>
+                                <div class="eyebrow">CONDEMNED / STORY MODE</div>
+                                <h1>История</h1>
+                                <p class="page-description">
+                                    Личные решения. Чужие секреты. Никаких гарантий.
+                                </p>
+                            </div>
+
+                            <div class="chapter-status">
+                                <span class="chapter-status-label">ЭПИЗОД 01</span>
+                                <strong>03 — 30 ОКТЯБРЯ</strong>
+                            </div>
+                        </div>
+
+                        <div class="story-layout">
+
+                            <!-- ИНФОРМАЦИЯ О СОБЫТИИ -->
+                            <div class="story-main">
+
+                                <div class="story-meta">
+                                    <span id="story-date">03 ОКТЯБРЯ</span>
+                                    <span class="meta-separator">/</span>
+                                    <span id="story-time">09:15</span>
+                                    <span class="meta-separator">/</span>
+                                    <span id="story-location">МОСКВА · CONDEMNED HQ</span>
+                                </div>
+
+                                <div class="story-title-block">
+                                    <div class="story-chapter" id="story-chapter">
+                                        ГЛАВА I
+                                    </div>
+
+                                    <h2 id="story-title">
+                                        Незнакомый заказчик
+                                    </h2>
+
+                                    <p id="story-subtitle" class="story-subtitle">
+                                        Некоторые предложения лучше не открывать.
+                                    </p>
+                                </div>
+
+                                <!-- ТЕКСТ СЦЕНЫ -->
+                                <article id="story-text" class="story-text">
+                                    <p>
+                                        Москва. 3 октября.
+                                    </p>
+                                    <p>
+                                        Рабочий день в CONDEMNED начался раньше обычного.
+                                        За окнами кабинета Доминики Черновой постепенно
+                                        просыпался город. На столе лежали документы,
+                                        которые она собиралась разобрать ещё вчера.
+                                    </p>
+                                    <p>
+                                        Но сегодня её внимание привлекло новое
+                                        уведомление на защищённом рабочем терминале.
+                                    </p>
+                                </article>
+
+                                <!-- ДИАЛОГ -->
+                                <div id="dialogue-box" class="dialogue-box hidden">
+                                    <div class="dialogue-speaker" id="dialogue-speaker">
+                                        РИТ
+                                    </div>
+                                    <div class="dialogue-line" id="dialogue-line"></div>
+                                </div>
+
+                                <!-- ВЫБОРЫ -->
+                                <div id="choices-section" class="choices-section hidden">
+                                    <div class="choices-heading">
+                                        <span class="choices-number">01</span>
+                                        <div>
+                                            <h3>Ваше решение</h3>
+                                            <p>Выбор может повлиять на дальнейшие события.</p>
+                                        </div>
+                                    </div>
+
+                                    <div id="choices-list" class="choices-list">
+                                        <!-- Варианты добавляются через JavaScript -->
+                                    </div>
+                                </div>
+
+                                <!-- РЕАКЦИЯ -->
+                                <div id="choice-result" class="choice-result hidden">
+                                    <div class="result-label">РЕАКЦИЯ</div>
+                                    <div id="choice-result-text"></div>
+                                    <button id="continue-button" class="primary-button">
+                                        Продолжить →
+                                    </button>
+                                </div>
+
+                                <!-- ЗАВЕРШЕНИЕ ДНЯ -->
+                                <div id="day-end" class="day-end hidden">
+                                    <div class="day-end-line"></div>
+                                    <div class="day-end-label">КОНЕЦ ИГРОВОГО ДНЯ</div>
+                                    <h2 id="day-end-date">04 ОКТЯБРЯ</h2>
+                                    <p id="day-end-description">
+                                        День завершён. Завтра всё может измениться.
+                                    </p>
+                                    <button id="next-day-button" class="primary-button">
+                                        Начать следующий день →
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            <!-- БОКОВАЯ ИНФОРМАЦИЯ -->
+                            <aside class="story-aside">
+
+                                <div class="aside-card">
+                                    <div class="aside-heading">ТЕКУЩАЯ ОБСТАНОВКА</div>
+                                    <div class="aside-main-value" id="current-location">
+                                        CONDEMNED HQ
+                                    </div>
+                                    <div class="aside-muted" id="current-scene">
+                                        Личный кабинет директора
+                                    </div>
+                                </div>
+
+                                <div class="aside-card">
+                                    <div class="aside-heading">ТЕКУЩАЯ ЗАДАЧА</div>
+                                    <div id="current-task" class="task-description">
+                                        Изучить полученный заказ.
+                                    </div>
+                                </div>
+
+                                <div class="aside-card">
+                                    <div class="aside-heading">КАЛЕНДАРЬ ЭПИЗОДА</div>
+                                    <div class="calendar-mini">
+                                        <div class="calendar-mini-header">
+                                            <span>ОКТЯБРЬ</span>
+                                            <span>2026</span>
+                                        </div>
+                                        <div class="calendar-mini-grid" id="mini-calendar">
+                                            <!-- Заполняется через JavaScript -->
+                                        </div>
+                                    </div>
+                                    <div class="aside-muted">
+                                        03–30 октября · Эпизод 01
+                                    </div>
+                                </div>
+
+                                <div class="aside-card">
+                                    <div class="aside-heading">ПОСЛЕДНЕЕ УВЕДОМЛЕНИЕ</div>
+                                    <div id="latest-notification" class="notification-preview">
+                                        Новых уведомлений нет.
+                                    </div>
+                                </div>
+
+                            </aside>
+                        </div>
+                    </section>
+
+                    <!-- КАЛЕНДАРЬ -->
+                    <section id="page-calendar" class="page">
+                        <div class="page-heading">
+                            <div>
+                                <div class="eyebrow">SCHEDULE / OCTOBER</div>
+                                <h1>Календарь</h1>
+                                <p class="page-description">
+                                    Рабочие дни, встречи и важные события.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="panel calendar-panel">
+                            <div class="calendar-heading">
+                                <button id="calendar-prev" class="secondary-button">←</button>
+                                <h2 id="calendar-month">ОКТЯБРЬ 2026</h2>
+                                <button id="calendar-next" class="secondary-button">→</button>
+                            </div>
+
+                            <div class="calendar-weekdays">
+                                <span>ПН</span><span>ВТ</span><span>СР</span>
+                                <span>ЧТ</span><span>ПТ</span><span>СБ</span><span>ВС</span>
+                            </div>
+
+                            <div id="full-calendar" class="full-calendar">
+                            </div>
+
+                            <div class="calendar-legend">
+                                <span><i class="legend-dot event-dot"></i> Событие</span>
+                                <span><i class="legend-dot current-dot"></i> Текущий день</span>
+                                <span><i class="legend-dot completed-dot"></i> Завершено</span>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h2>Расписание выбранного дня</h2>
+                            </div>
+                            <div id="calendar-events" class="calendar-events">
+                                Выберите дату в календаре.
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ЗАДАНИЯ -->
+                    <section id="page-tasks" class="page">
+                        <div class="page-heading">
+                            <div>
+                                <div class="eyebrow">OPERATIONS / OBJECTIVES</div>
+                                <h1>Задания</h1>
+                                <p class="page-description">
+                                    Текущие задачи и незавершённые дела.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="tasks-container" class="cards-container">
+                        </div>
+                    </section>
+
+                    <!-- ПЕРЕПИСКИ -->
+                    <section id="page-messages" class="page">
+                        <div class="page-heading">
+                            <div>
+                                <div class="eyebrow">COMMUNICATION / PRIVATE</div>
+                                <h1>Переписки</h1>
+                                <p class="page-description">
+                                    Личные сообщения и внутренние каналы связи.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="messenger-layout panel">
+                            <div class="chat-list">
+                                <div class="chat-list-heading">КОНТАКТЫ</div>
+                                <div id="chat-contacts">
+                                    <!-- Контакты добавляются через JavaScript -->
+                                </div>
+                            </div>
+
+                            <div class="chat-window">
+                                <div class="chat-header">
+                                    <div>
+                                        <div id="chat-name">Выберите переписку</div>
+                                        <div id="chat-status" class="aside-muted">
+                                            PRIVATE CHANNEL
+                                        </div>
+                                    </div>
+                                    <button id="chat-call-button" class="secondary-button">
+                                        Позвонить
+                                    </button>
+                                </div>
+
+                                <div id="chat-messages" class="chat-messages">
+                                    <div class="empty-state">
+                                        Выберите контакт, чтобы открыть переписку.
+                                    </div>
+                                </div>
+
+                                <form id="chat-form" class="chat-input-area">
+                                    <input
+                                        id="chat-input"
+                                        type="text"
+                                        placeholder="Написать сообщение..."
+                                        autocomplete="off"
+                                        maxlength="1000"
+                                    >
+                                    <button type="submit" class="primary-button">
+                                        Отправить
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ДОСЬЕ -->
+                    <section id="page-dossiers" class="page">
+                        <div class="page-heading">
+                            <div>
+                                <div class="eyebrow">PERSONNEL / CLASSIFIED</div>
+                                <h1>Досье</h1>
+                                <p class="page-description">
+                                    Персональные данные и сведения о ключевых фигурах.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="dossiers-container" class="cards-container">
+                        </div>
+                    </section>
+
+                    <!-- ДЕЛА -->
+                    <section id="page-cases" class="page">
+                        <div class="page-heading">
+                            <div>
+                                <div class="eyebrow">INVESTIGATION / RECORDS</div>
+                                <h1>Дела</h1>
+                                <p class="page-description">
+                                    Материалы расследований и обнаруженные документы.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="cases-container" class="cards-container">
+                        </div>
+                    </section>
+
+                    <!-- КОМПАНИИ -->
+                    <section id="page-companies" class="page">
+                        <div class="page-heading">
+                            <div>
+                                <div class="eyebrow">CORPORATE / INFORMATION</div>
+                                <h1>Компании</h1>
+                                <p class="page-description">
+                                    Организации, деловые связи и корпоративные сведения.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="companies-container" class="cards-container">
+                        </div>
+                    </section>
+
+                    <!-- АРХИВ -->
+                    <section id="page-archive" class="page">
+                        <div class="page-heading">
+                            <div>
+                                <div class="eyebrow">DOCUMENTS / ARCHIVE</div>
+                                <h1>Архив документов</h1>
+                                <p class="page-description">
+                                    Отчёты, письма, записи и найденные материалы.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="archive-container" class="cards-container">
+                        </div>
+                    </section>
+
+                    <!-- УВЕДОМЛЕНИЯ -->
+                    <section id="page-notifications" class="page">
+                        <div class="page-heading">
+                            <div>
+                                <div class="eyebrow">SYSTEM / ALERTS</div>
+                                <h1>Уведомления</h1>
+                                <p class="page-description">
+                                    Новые сообщения и события системы.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="notifications-container" class="cards-container">
+                        </div>
+                    </section>
+
+                    <!-- НАСТРОЙКИ -->
+                    <section id="page-settings" class="page">
+                        <div class="page-heading">
+                            <div>
+                                <div class="eyebrow">SYSTEM / CONFIGURATION</div>
+                                <h1>Настройки</h1>
+                                <p class="page-description">
+                                    Управление сохранениями и игровым процессом.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="panel settings-panel">
+                            <div class="setting-row">
+                                <div>
+                                    <h3>Автоматическое сохранение</h3>
+                                    <p>Прогресс сохраняется в браузере.</p>
+                                </div>
+                                <span class="setting-status">ВКЛЮЧЕНО</span>
+                            </div>
+
+                            <div class="setting-row">
+                                <div>
+                                    <h3>Текущий эпизод</h3>
+                                    <p>Первый эпизод: 3–30 октября.</p>
+                                </div>
+                                <span class="setting-status">АКТИВЕН</span>
+                            </div>
+
+                            <div class="setting-row">
+                                <div>
+                                    <h3>Текущая дата</h3>
+                                    <p id="settings-current-date">03 октября</p>
+                                </div>
+                            </div>
+
+                            <div class="setting-actions">
+                                <button id="save-button" class="secondary-button">
+                                    Сохранить сейчас
+                                </button>
+                                <button id="reset-button" class="danger-button">
+                                    Начать игру заново
+                                </button>
+                            </div>
+
+                            <p class="settings-warning">
+                                Сброс удалит локальное сохранение текущего прохождения.
+                            </p>
+                        </div>
+                    </section>
+
+                </main>
+            </div>
+
+            <!-- НИЖНЯЯ ПАНЕЛЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ -->
+            <nav class="mobile-navigation">
+                <button class="mobile-nav-item active" data-page="story">
+                    <span>▣</span>
+                    <small>История</small>
+                </button>
+                <button class="mobile-nav-item" data-page="calendar">
+                    <span>▦</span>
+                    <small>Календарь</small>
+                </button>
+                <button class="mobile-nav-item" data-page="messages">
+                    <span>▤</span>
+                    <small>Чаты</small>
+                </button>
+                <button class="mobile-nav-item" data-page="dossiers">
+                    <span>▧</span>
+                    <small>Досье</small>
+                </button>
+                <button class="mobile-nav-item" data-page="tasks">
+                    <span>◇</span>
+                    <small>Задания</small>
+                </button>
+            </nav>
+
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-backdrop" id="modal-backdrop"></div>
+        <div class="modal-content">
+            <button id="modal-close" class="modal-close">×</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- УВЕДОМЛЕНИЕ -->
+    <div id="toast" class="toast hidden">
+        <span id="toast-text"></span>
+    </div>
+
+    <!-- СКРИПТ ИГРЫ -->
+    <script src="script.js"></script>
+</body>
+</html>
